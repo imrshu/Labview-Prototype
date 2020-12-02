@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
-    Front Panel
+    Front Panel Logic Building
 {% endblock %}
 
 {% block content %}
@@ -9,8 +11,55 @@
     <br>
     <div class="row">
         <div class="col-md-12 text-center">
-            <button type="button" class="btn btn-success btn-lg">Run</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="run();">Run</button>
         </div>
     </div>
 
+    <br><br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="border: 1px solid black;">
+                <div class="row">
+                    <!-- <div class="col-sm-12 text-center">
+                        <h2>Inputs</h2>
+                    </div> -->
+                    <div class="col-sm-12" style="cursor: pointer;padding: 10px 50px;">
+                        <img src="{% static 'img/slider.png' %}" alt="slider image" id="slider_image"  title="slider" draggable="true" ondragstart="sliderDragStart(event);">
+                    </div>
+                    <!-- <div class="col-sm-12 text-center">
+                        <h2>Outputs</h2>
+                    </div> -->
+                    <div class="col-sm-12" style="cursor: pointer;padding: 10px 50px;">
+                        <img src="{% static 'img/textfield.png' %}" alt="textfield image" id="textfield_image" title="textfield" draggable="true" ondragstart="textFieldDragStart(event);">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div id="slider_area" class="col-sm-12 text-center font-weight-bold" style="padding: 80px 60px;height: 200px;" ondragenter="sliderEntersInDropZone(event);" ondragover="sliderDragOverDropZone(event);" ondragleave="sliderLeavesDropZone(event);" ondrop="sliderDropsInDropZone(event);">
+                        Drag the Slider here
+                    </div>
+                    <div id="textfield_area" class="col-sm-12 text-center font-weight-bold" style="padding: 80px 60px;height: 200px;" ondragenter="textFieldEntersInDropZone(event);" ondragover="textFieldDragOverDropZone(event);" ondragleave="textFieldLeavesDropZone(event);" ondrop="textFieldDropsInDropZone(event);">                        
+                        Drag the TextField here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 text-right">
+            <button class="btn btn-primary btn-lg" onclick="openBackPanel();">Backpanel</button>
+          </div>
+        </div>
+    </div>
+  
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
